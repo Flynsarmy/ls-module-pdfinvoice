@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Invoice</title>
+	<link rel="stylesheet" href="<?= root_url('/modules/flynsarmypdfinvoice/resources/css/invoice.css', true) ?>" />
+</head>
+<body>
+	<?php $this->render_partial(PATH_APP.'/modules/shop/invoice_templates/'.$template_id.'/invoice.htm', array(
+		'order_id'=>$order->id,
+		'order'=>$order,
+		'invoice_date'=>$invoice_date,
+		'company_info' => $company_info,
+		'display_due_date' => $display_due_date,
+		'due_date'=>$company_info->get_invoice_due_date($invoice_date),
+		'display_tax_included'=>Shop_CheckoutData::display_prices_incl_tax($order),
+		'has_bundles'=>$has_bundles
+	)); ?>
+</body>
+</html>
