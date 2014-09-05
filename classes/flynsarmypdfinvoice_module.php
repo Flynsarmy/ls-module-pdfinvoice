@@ -16,6 +16,20 @@ class FlynsarmyPDFInvoice_Module extends Core_ModuleBase
 		);
 	}
 
+	public function listSettingsItems()
+	{
+		return array(
+			array(
+				'icon'=>'/modules/flynsarmypdfinvoice/resources/images/file-pdf-o_f90605_48.png',
+				'title'=>'PDF Invoices',
+				'url'=>'/flynsarmypdfinvoice/settings',
+				'description'=>'Customize your PDF invoices.',
+				'sort_id'=>30,
+				'section'=>'eCommerce',
+			),
+		);
+	}
+
 	// public function subscribeEvents()
 	// {
 	// 	Backend::$events->addEvent('core:onBeforeEmailSendToCustomer', $this, 'before_email_send_to_customer');

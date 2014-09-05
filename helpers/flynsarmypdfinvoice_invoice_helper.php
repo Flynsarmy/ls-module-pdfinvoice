@@ -48,15 +48,14 @@
 				'display_due_date' => $display_due_date,
 				'due_date'=>$company_info->get_invoice_due_date($invoice_date),
 				'display_tax_included'=>Shop_CheckoutData::display_prices_incl_tax($order),
-				'has_bundles'=>$has_bundles
+				'has_bundles'=>$has_bundles,
+
+				'custom_css' => FlynsarmyPDFInvoice_Configuration::create()->custom_css,
 			));
 			$html = ob_get_clean();
 
 			// Replace relative URLs with absolute so DomPDF can remotely grab them
 			$html = preg_replace("/(href|src)=(['\"])\//", "$1=$2".root_url('', true), $html);
-
-			// echo $html;
-			// return;
 
 			// Required for asset downloads
 			define('DOMPDF_ENABLE_REMOTE', true);

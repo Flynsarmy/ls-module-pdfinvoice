@@ -3,6 +3,9 @@
 <head>
 	<title>Invoice</title>
 	<link rel="stylesheet" href="<?= root_url('/modules/flynsarmypdfinvoice/resources/css/invoice.css', true) ?>" />
+	<style type="text/css">
+		<?= $custom_css ?>
+	</style>
 </head>
 <body>
 	<?php $this->render_partial(PATH_APP.'/modules/shop/invoice_templates/'.$template_id.'/invoice.htm', array(

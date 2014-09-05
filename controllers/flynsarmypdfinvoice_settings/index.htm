@@ -1,0 +1,23 @@
+<? Phpr_View::beginBlock("view") ?>
+	<ul class="breadcrumbs">
+		<li><a href="<?= url('/system/settings') ?>">Settings</a></li>
+		<li><?= $this->app_page_title ?></li>
+	</ul>
+
+	<h2 class="offsetTopSmall">PDF Invoice Settings</h2>
+
+	<? if (!isset($fatalError)): ?>
+		<div class="form600">
+			<?= Phpr_Form::openTag(array('id'=>'form_element')) ?>
+				<div id="formFlash"></div>
+
+				<? $this->formRender($form_model) ?>
+
+				<?= backend_ajax_button('Save', 'index_onSave', array(), "prepareFunction: function(){phprTriggerSave();}, loadIndicator: {hideOnSuccess: true}, update: 'formFlash'") ?>
+				<div class="clear"></div>
+			</form>
+		</div>
+	<? else: ?>
+		<?= flash() ?>
+	<? endif ?>
+<? Phpr_View::endBlock() ?>
