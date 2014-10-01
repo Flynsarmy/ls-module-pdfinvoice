@@ -58,8 +58,8 @@
 			$html = preg_replace("/(href|src)=(['\"])\//", "$1=$2".root_url('', true), $html);
 
 			// Required for asset downloads
-			define('DOMPDF_ENABLE_REMOTE', true);
-			define('DOMPDF_ENABLE_AUTOLOAD', false);
+			if ( !defined('DOMPDF_ENABLE_REMOTE') ) define('DOMPDF_ENABLE_REMOTE', true);
+			if ( !defined('DOMPDF_ENABLE_AUTOLOAD') ) define('DOMPDF_ENABLE_AUTOLOAD', false);
 
 			require_once dirname(__FILE__)."/../vendor/autoload.php";
 			require_once(dirname(__FILE__).'/../vendor/dompdf/dompdf/dompdf_config.inc.php');
